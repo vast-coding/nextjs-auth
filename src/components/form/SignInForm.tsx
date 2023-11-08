@@ -21,7 +21,7 @@ const FormSchema = z.object({
   password: z
     .string()
     .min(1, 'Password is required')
-    .min(8, 'Password must have than 8 characters'),
+    .min(8, 'Password must have at least 8 characters'),
 })
 
 const SignInForm = () => {
