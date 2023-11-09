@@ -20,6 +20,9 @@ dependencies:
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
+  cookies-next:
+    specifier: ^4.0.0
+    version: 4.0.0
   lucide-react:
     specifier: ^0.292.0
     version: 0.292.0(react@18.2.0)
@@ -44,6 +47,9 @@ dependencies:
   zod:
     specifier: ^3.22.4
     version: 3.22.4
+  zustand:
+    specifier: ^4.4.6
+    version: 4.4.6(@types/react@18.2.37)(react@18.2.0)
 
 devDependencies:
   '@ianvs/prettier-plugin-sort-imports':
@@ -79,6 +85,9 @@ devDependencies:
   prettier:
     specifier: 3.0.3
     version: 3.0.3
+  simple-zustand-devtools:
+    specifier: ^1.1.0
+    version: 1.1.0(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)(zustand@4.4.6)
   tailwindcss:
     specifier: ^3.3.0
     version: 3.3.5
@@ -580,9 +589,17 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /@types/cookie@0.4.1:
+    resolution: {integrity: sha512-XW/Aa8APYr6jSVVA1y/DEIZX0/GMKLEVekNG727R8cs56ahETkRAy/3DR7+fJyh7oUgGwNQaRfXCun0+KbWY7Q==}
+    dev: false
+
   /@types/json5@0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
+
+  /@types/node@16.18.61:
+    resolution: {integrity: sha512-k0N7BqGhJoJzdh6MuQg1V1ragJiXTh8VUBAZTWjJ9cUq23SG0F0xavOwZbhiP4J3y20xd6jxKx+xNUhkMAi76Q==}
+    dev: false
 
   /@types/node@20.9.0:
     resolution: {integrity: sha512-nekiGu2NDb1BcVofVcEKMIwzlx4NjHlcjhoxxKBNLtz15Y1z7MYf549DFvkHSId02Ax6kGwWntIBPC3l/JZcmw==}
@@ -1033,6 +1050,19 @@ packages:
 
   /convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
+
+  /cookie@0.4.2:
+    resolution: {integrity: sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA==}
+    engines: {node: '>= 0.6'}
+    dev: false
+
+  /cookies-next@4.0.0:
+    resolution: {integrity: sha512-3TyzeltFCGgdOlVOVTPClSq+YV9ZCdOyA3aHRZv9f5aSgg7EyI4NSvXFOCgzT/xIxeHR4Rz8/z5Tdo9oPqaVpA==}
+    dependencies:
+      '@types/cookie': 0.4.1
+      '@types/node': 16.18.61
+      cookie: 0.4.2
+    dev: false
 
   /cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
@@ -2586,7 +2616,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
-    dev: false
 
   /react-hook-form@7.48.2(react@18.2.0):
     resolution: {integrity: sha512-H0T2InFQb1hX7qKtDIZmvpU1Xfn/bdahWBN1fH19gSe4bBEqTfmlr7H3XWTaVtiK4/tpPaI1F3355GPMZYge+A==}
@@ -2606,7 +2635,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
@@ -2719,7 +2747,6 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -2779,6 +2806,22 @@ packages:
   /signal-exit@4.1.0:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
+    dev: true
+
+  /simple-zustand-devtools@1.1.0(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)(zustand@4.4.6):
+    resolution: {integrity: sha512-Axfcfr9L3YL3kto7aschCQLY2VUlXXMnIVtaTe9Y0qWbNmPsX/y7KsNprmxBZoB0pww5ZGs1u/ohcrvQ3tE6jA==}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      '@types/react-dom': '>=18.0.0'
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+      zustand: '>=1.0.2'
+    dependencies:
+      '@types/react': 18.2.37
+      '@types/react-dom': 18.2.15
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      zustand: 4.4.6(@types/react@18.2.37)(react@18.2.0)
     dev: true
 
   /slash@3.0.0:
@@ -3122,6 +3165,13 @@ packages:
       punycode: 2.3.1
     dev: true
 
+  /use-sync-external-store@1.2.0(react@18.2.0):
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
@@ -3225,3 +3275,22 @@ packages:
   /zod@3.22.4:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: false
+
+  /zustand@4.4.6(@types/react@18.2.37)(react@18.2.0):
+    resolution: {integrity: sha512-Rb16eW55gqL4W2XZpJh0fnrATxYEG3Apl2gfHTyDSE965x/zxslTikpNch0JgNjJA9zK6gEFW8Fl6d1rTZaqgg==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      '@types/react': '>=16.8'
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      '@types/react': 18.2.37
+      react: 18.2.0
+      use-sync-external-store: 1.2.0(react@18.2.0)

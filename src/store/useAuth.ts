@@ -1,13 +1,9 @@
-'use client'
-
-import SignInForm from '@/components/form/SignInForm'
-import { Button } from '@/components/ui/button'
-import { useAuthStore } from '@/store/useAuthStore'
 import { setCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { useAuthStore } from './useAuthStore'
 
-const Page = () => {
+const useAuth = () => {
   const [userName, setUserName] = useState('kminchelle')
   const [userPassword, setUserPassword] = useState('0lelplR')
 
@@ -49,15 +45,5 @@ const Page = () => {
       router.push('/') // redirect to home page
     }
   }
-  return (
-    <div className="w-full">
-      <SignInForm
-        updatePassword={updatePassword}
-        updateUserName={updateUserName}
-        login={login}
-      />
-    </div>
-  )
+  return { login, updateUserName, updatePassword, userName, userPassword }
 }
-
-export default Page

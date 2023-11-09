@@ -1,5 +1,6 @@
 'use client'
 
+import { type } from 'os'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
@@ -24,7 +25,12 @@ const FormSchema = z.object({
     .min(8, 'Password must have at least 8 characters'),
 })
 
-const SignInForm = () => {
+type TSignInForm = {
+  updatePassword: () => {}
+  updateUserName: () => {}
+  login: () => {}
+}
+const SignInForm = ({ updatePassword, updateUserName, login }: TSignInForm) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -48,7 +54,11 @@ const SignInForm = () => {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="mail@example.com" {...field} />
+                  <Input
+                    placeholder="mail@example.com"
+                    {...field}
+                    onChange={updateUserName}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -65,6 +75,7 @@ const SignInForm = () => {
                     type="password"
                     placeholder="Enter your password"
                     {...field}
+                    onChange={updatePassword}
                   />
                 </FormControl>
                 <FormMessage />
@@ -72,7 +83,7 @@ const SignInForm = () => {
             )}
           />
         </div>
-        <Button className="w-full mt-6" type="submit">
+        <Button className="w-full mt-6" type="button" onClick={login}>
           Sign in
         </Button>
       </form>
